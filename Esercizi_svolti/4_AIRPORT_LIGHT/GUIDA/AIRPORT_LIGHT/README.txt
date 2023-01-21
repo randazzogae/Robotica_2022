@@ -1,0 +1,3 @@
+-Spostare la cartella Airport_light all'interno della cartella Domains
+-Rinominare la cartella "eclipse_basic" che si trova in C:\TeamBots in "eclipse_basic_old"
+-Spostare la cartella eclipse_basic in C:\TeamBots

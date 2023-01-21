@@ -1,0 +1,9 @@
+:- module(mdd_support).
+:- export ordered_tuples_to_mdd / 2.
+:- export mdd_solutions / 2.
+:- export view_mdd / 1.
+:- comment(summary, "Operations on Multi-Valued Decision Diagrams").
+:- comment(categories, ["Data Structures"]).
+:- comment(author, "Joachim Schimpf").
+:- comment(copyright, "Joachim Schimpf, Coninfer Ltd").
+:- comment(date, "$Date: 2017/09/28 22:43:43 $").

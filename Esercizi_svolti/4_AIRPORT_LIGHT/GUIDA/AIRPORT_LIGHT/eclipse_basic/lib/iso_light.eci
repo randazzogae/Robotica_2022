@@ -1,0 +1,97 @@
+:- module(iso_light).
+:- export op(0, fy, abolish).
+:- export op(0, fy, dynamic).
+:- export chtab(96, string_quote).
+:- export chtab(34, list_quote).
+:- export syntax_option(dense_output).
+:- export syntax_option(not nl_in_quotes).
+:- export syntax_option(iso_escapes).
+:- export syntax_option(iso_base_prefix).
+:- export syntax_option(iso_restrictions).
+:- export syntax_option(no_string_concatenation).
+:- export syntax_option(eof_is_no_fullstop).
+:- export syntax_option(not syntax_errors_fail).
+:- export syntax_option(plus_is_no_sign).
+:- export syntax_option(doubled_quote_is_quote).
+:- export syntax_option(bar_is_no_atom).
+:- export syntax_option(blanks_after_sign).
+:- export syntax_option(float_needs_point).
+:- export syntax_option(limit_arg_precedence).
+:- export op(200, xfx, **).
+:- reexport eclipse_language except floor / 2, ceiling / 2, current_op / 3, round / 2, truncate / 2, (^) / 2, (^) / 3, (is) / 2, (>) / 2, (<) / 2, (>=) / 2, (=<) / 2, (=:=) / 2, (=\=) / 2, (abolish) / 1, asserta / 1, assertz / 1, atom_length / 2, clause / 2, get_char / 1, get_char / 2, put_char / 1, put_char / 2, retract / 1.
+:- export (abolish) / 1.
+:- export asserta / 1.
+:- export assertz / 1.
+:- export at_end_of_stream / 0.
+:- export at_end_of_stream / 1.
+:- export atom_concat / 3.
+:- export atom_codes / 2.
+:- export atom_chars / 2.
+:- export atom_length / 2.
+:- export char_conversion / 2.
+:- export clause / 2.
+:- export current_char_conversion / 2.
+:- export current_input / 1.
+:- export current_output / 1.
+:- export current_prolog_flag / 2.
+:- export flush_output / 0.
+:- export flush_output / 1.
+:- export get_byte / 1.
+:- export get_byte / 2.
+:- export get_char / 1.
+:- export get_char / 2.
+:- export get_code / 1.
+:- export get_code / 2.
+:- export halt / 1.
+:- export initialization / 1.
+:- export number_chars / 2.
+:- export number_codes / 2.
+:- export peek_byte / 1.
+:- export peek_byte / 2.
+:- export peek_char / 1.
+:- export peek_char / 2.
+:- export peek_code / 1.
+:- export peek_code / 2.
+:- export put_byte / 1.
+:- export put_byte / 2.
+:- export put_char / 1.
+:- export put_char / 2.
+:- export put_code / 1.
+:- export put_code / 2.
+:- export retract / 1.
+:- export set_input / 1.
+:- export set_output / 1.
+:- export set_prolog_flag / 2.
+:- export set_stream_position / 2.
+:- export stream_property / 2.
+:- export sub_atom / 5.
+:- export subsumes_term / 2.
+:- export unify_with_occurs_check / 2.
+:- tool(initialization / 1, initialization / 2).
+:- export (is) / 2.
+:- tool((is) / 2, is_ / 3).
+:- export (>=) / 2.
+:- export (>) / 2.
+:- export (=<) / 2.
+:- export (<) / 2.
+:- export (=:=) / 2.
+:- export (=\=) / 2.
+:- reexport multifile.
+:- tool((abolish) / 1, abolish_ / 2).
+:- tool(asserta / 1, asserta_ / 2).
+:- tool(assertz / 1, assertz_ / 2).
+:- tool(retract / 1, retract_ / 2).
+:- tool(clause / 2, clause_ / 3).
+:- export current_op / 3.
+:- tool(current_op / 3, current_op_ / 4).
+:- export set_prolog_flag / 2.
+:- tool(set_prolog_flag / 2, set_prolog_flag_ / 3).
+:- export current_prolog_flag / 2.
+:- tool(current_prolog_flag / 2, current_prolog_flag_ / 3).
+:- comment(categories, ["Compatibility"]).
+:- comment(summary, "ISO Prolog compatibility library (light version)").
+:- comment(author, "Joachim Schimpf, Coninfer Ltd").
+:- comment(copyright, "Cisco Systems, Inc (2006), Coninfer Ltd (modifications 2007-2017)").
+:- comment(date, "$Date: 2017/08/24 14:37:08 $").
+:- comment(see_also, [library(multifile), library(iso_strict), library(iso)]).
+:- comment(desc, html("<h3>Overview</h3>\n    This library provides the essential features of ISO-Prolog (ISO/IEC\n    13211-1) without aiming for full conformance, in particular with respect\n    to error handling.\n    <P>\n    This is one of three libraries providing different degrees of ISO\n    compatibility:\n    <DL>\n    <DT><STRONG>iso_strict</STRONG></DT>\n        <DD>Aims to be fully ISO compliant, and represents the\n        'strict mode' required by the standard.</DD>\n    <DT><STRONG>iso</STRONG></DT>\n        <DD>Aims to be fully ISO compliant, but also includes\n        ECLiPSe functionality that does not conflict with the standard.\n    <DT><STRONG>iso_light</STRONG></DT>\n        <DD>Provides the essence of ISO features without aiming for full\n        conformance (in particular with respect to error handling), and\n        may include ECLiPSe extensions that go beyond what the letter of\n        the standard allows.  Also useful for importing individual ISO\n        features into a program that is otherwise written in ECLiPSe dialect.\n    </DL>\n    <P>\n<h3>Usage as a language-module</h3>\n    The effect of this compatibility library is (with minor exceptions)\n    local to the module where it is loaded.  An program written in this\n    dialect should always be contained in a separate module, starting with\n    a directive like\n    <PRE>\n    :- module(myisomodule, [], iso_light).\n    </PRE>\n    Here, the last argument of the module/3 directive indicates the language.\n    It is not advisable to use \":-lib(iso_light)\" or \":-ensure_loaded(library(iso_light))\"\n    within an eclipse_language module, because this would lead to import\n    conflicts between the different versions of built-in predicates.\n    <P>\n    Alternatively, in order to use ISO-Prolog without having different\n    modules, one can invoke eclipse with a \"-L iso_light\" command line option,\n    or set the ECLIPSEDEFFAULTLANGUAGE environment variable to 'iso_light'.\n    This will launch eclipse with a default module accepting 'iso_light' language\n    instead of the usual 'eclipse_language'.\n    <P>\n<h3>Using individual features</h3>\n    It is possible and meaningful to import only individual predicates\n    from this library, e.g.\n    <PRE>\n    :- import sub_atom/5 from iso_light.\n    </PRE>\n    This will only make sub_atom/5 available, without affecting syntax\n    settings in the importing module.\n    <P>\n<h3>Differences</h3>\n    The main differences of the iso_light language compared to the\n    default eclipse_language are the following:\n    <UL>\n    <LI>The syntax is more restricted, and ISO style is preferred, e.g.\n        for writing hexadecimal numbers.</LI>\n    <LI>Double quotes denote character lists, while in ECLiPSe they denote\n        string constants.  ECLiPSe-strings can however be written using\n        back-quotes, e.g. `abc`.</LI>\n    <LI>Arithmetic functions like floor/1 return integer results.</LI>\n    <LI>All ISO built-in predicates are available.</LI>\n    </UL>\n")).

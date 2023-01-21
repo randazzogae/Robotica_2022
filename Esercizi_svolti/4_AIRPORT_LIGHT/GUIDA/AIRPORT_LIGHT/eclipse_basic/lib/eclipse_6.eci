@@ -1,0 +1,14 @@
+:- module(eclipse_6).
+:- export syntax_option(not based_bignums).
+:- export chtab(96, symbol).
+:- export term_variables / 2.
+:- export select / 3.
+:- export subscript / 3.
+:- tool(subscript / 3, subscript / 4).
+:- export collection_to_list / 2.
+:- comment(categories, ["Compatibility"]).
+:- comment(summary, "Compatibility definitions for ECLiPSe 6.X").
+:- comment(author, "Joachim Schimpf").
+:- comment(copyright, "Joachim Schimpf, Coninfer Ltd").
+:- comment(date, "$Date: 2017/08/01 13:34:01 $").
+:- comment(desc, html("<P>\n    This library is meant to help with problems that might occur when\n    migrating an application from ECLiPSe 6.x to 7.x by reverting some\n    changes that were introduced.  It provides:\n<UL>\n    <LI>a version of term_variables/2 with the old behaviour</LI>\n    <LI>select/3 as an alias for stream_select/3</LI>\n    <LI>the old parser behaviour for bignums in radix notation</LI>\n    <LI>the right quote character as a symbol rather than a quote</LI>\n</UL>\n    The library can be loaded at the beginning of a source module using\n    <PRE>\n    :- lib(eclipse_6).\n    </PRE>\n    It should only be used as a temporary solution, please update your\n    application code, or copy the specific workaround from the source\n    of this library.\n</P>")).

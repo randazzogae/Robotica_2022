@@ -1,0 +1,9 @@
+:- module(flatzinc_syntax).
+:- export read_item / 2.
+:- comment(date, "$Date: 2012/10/23 00:38:15 $").
+:- comment(categories, ["Interfacing"]).
+:- comment(summary, "Configure ECLiPSe parser to accept FlatZinc syntax").
+:- comment(author, "Joachim Schimpf, supported by Cisco Systems and NICTA Victoria").
+:- comment(copyright, "Cisco Systems Inc, licensed under CMPL").
+:- comment(see_also, [library(flatzinc_parser)]).
+:- comment(desc, html("\n<P>\nThis module provides a quick way to enable ECLiPSe to read FlatZinc items.\nFlatZinc Syntax is sufficiently close to ECLiPSe syntax to allow the normal\nECLiPSe parser to read FlatZinc, provided a number of syntax options are set.\nThe way to use this library is to load it\n<PRE>\n:- lib(flatzinc_syntax).\n</PRE>\nand then use the normal read/1,2,etc primitives with this\nmodule context, e.g.\n<PRE>\n..., read(Stream, FlatZincItem)@flatzinc_syntax, ...\n</PRE>\nfor example\n<PRE>\nfzn_echo(File) :-\n\topen(File, read, Stream),\n\tread(Stream, Term1)@flatzinc_syntax,\n\t( fromto(Term1, Term, Term2, end_of_file), param(Stream) do\n\t    writeln(Term),\n\t    read(Stream, Term2)@flatzinc_syntax\n\t),\n\tclose(Stream).\n</PRE>\n</P><P>\nAlternatively, the library exports read_item/2, which is defined as\n<PRE>\nread_item(Stream, Term) :-\n\tread(Stream, Term)@flatzinc_syntax,\n\tTerm \\== end_of_file.\n</PRE>\nand is call-compatible with the predicate of the same name\nexported from lib(flatzinc_parser), but faster.  Since it\nworks simply by modifying syntax settings for the normal\nECLiPSe parser, it is less strict than the purpose\nwritten library(flatzinc_parser), and will detect less\nsyntax errors. This should however not be an issue when\nprocessing generated FlatZinc source.\n</P>\n")).

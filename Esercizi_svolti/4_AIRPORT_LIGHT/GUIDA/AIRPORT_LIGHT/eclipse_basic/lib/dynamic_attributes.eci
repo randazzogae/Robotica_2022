@@ -1,0 +1,27 @@
+:- module(dynamic_attributes).
+:- export attvar / 1.
+:- export put_attr / 3.
+:- export put_attrs / 2.
+:- export get_attr / 3.
+:- export get_attrs / 2.
+:- export del_attr / 2.
+:- export del_attrs / 1.
+:- export copy_term / 3.
+:- export copy_term_nat / 2.
+:- export term_attvars / 2.
+:- comment(categories, ["Compatibility"]).
+:- comment(summary, "SWI/hProlog-style variable attribute interface").
+:- comment(author, "Joachim Schimpf, Coninfer Ltd").
+:- comment(copyright, "Public domain").
+:- comment(date, "$Date: 2016/08/12 10:57:29 $").
+:- comment(see_also, [meta_attribute / 2, library(atts), library(swi)]).
+:- comment(desc, html("<P>\n    This library provides variable attributes in the style of Demoen\n    (Bart Demoen: Dynamic attributes, their hProlog implementation,\n    and a first evaluation. Report CW 350, Department of Computer Science,\n    K.U.Leuven, Leuven, Belgium, Oct 2002), and aims specifically at\n    compatibility with their implementation in SWI-Prolog.\n</P><P>\n    The designation 'dynamic attributes' indicates that these attribute\n    names do not have to be declared, and attributes can be freely added\n    and removed.  The implementation consists of a thin layer on top of\n    ECLiPSe's native variable attributes: they are stored in a hash table\n    attached to a variable as the ECLiPSe attribute 'dynamic_attributes'.\n</P><P>\n    Dynamic attributes can be freely mixed with ECLiPSe's native attributes.\n</P>\n")).
+:- comment(attvar / 1, [summary : "Term is a variable with at least one dynamic attribute", amode : (attvar(?) is semidet), args : ["Term" : "term to be tested"]]).
+:- comment(copy_term / 3, [summary : "Compatibility: SWI/SICStus-Prolog term copy", amode : (copy_term(?, -, -) is det), args : ["Term" : "any term", "Copy" : "copy of term with plain variables", "Goals" : "Goals to construct Copy's attributes"], see_also : [_311154 : copy_term / 3], desc : html("\n    CAUTION: this predicate shares its name with ECLiPSe's copy_term/3\n    built-in.  Use module-qualification or import-from to disambiguate.")]).
+:- comment(copy_term_nat / 2, [summary : "Copy term without variable attributes", amode : (copy_term_nat(?, -) is det), args : ["Term" : "any term", "Copy" : "copy of term with plain variables"], see_also : [_312323 : copy_term / 3], desc : html("\n    This is equivant to\n<PRE>\n    copy_term_nat(Term, Copy) :-\n        eclipse_language:copy_term(Term, Copy, _AttVars).\n</PRE>\n    ")]).
+:- comment(del_attr / 2, [summary : "Delete a dynamic attribute", amode : (del_attr(?, +) is det), args : ["Var" : "variable or ", "Name" : "attribute name (atom)"]]).
+:- comment(del_attrs / 1, [summary : "Delete all dynamic attributes", amode : (del_attrs(?) is det), args : ["Var" : "variable"]]).
+:- comment(get_attr / 3, [summary : "Retrieve a dynamic attribute", amode : (get_attr(-, +, -) is semidet), args : ["Var" : "variable", "Name" : "attribute name (atom)", "Value" : "attribute value"]]).
+:- comment(get_attrs / 2, [summary : "Get all dynamic attributes", amode : (get_attrs(-, -) is det), args : ["Var" : "variable", "Attrs" : "Nested term att(Name,Value,MoreAttrs) or []"]]).
+:- comment(put_attr / 3, [summary : "Add or replace a dynamic attribute", amode : (put_attr(-, +, ?) is det), args : ["Var" : "variable", "Name" : "attribute name (atom)", "Value" : "attribute value"]]).
+:- comment(put_attrs / 2, [summary : "Add or replace dynamic attributes", amode : (put_attrs(-, +) is det), args : ["Var" : "variable", "Attrs" : "Nested term att(Name,Value,MoreAttrs) or []"]]).

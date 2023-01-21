@@ -1,0 +1,13 @@
+:- module(fzn_ic).
+:- export minimize / 3.
+:- export sort / 2.
+:- reexport disjoint / 2 from ic_sets.
+:- export all_disjoint / 1.
+:- export table / 2.
+:- comment(categories, ["Interfacing", "Constraints"]).
+:- comment(summary, "Mapping from FlatZinc to lib(ic) and lib(ic_sets)").
+:- comment(author, "Joachim Schimpf, supported by Cisco Systems and NICTA Victoria").
+:- comment(copyright, "Cisco Systems Inc, licensed under CMPL").
+:- comment(date, "$Date: 2016/07/24 19:34:45 $").
+:- comment(see_also, [library(flatzinc), library(ic), library(ic_sets), library(ic_global), library(propia), library(branch_and_bound)]).
+:- comment(desc, html("\nThis module defines a mapping from FlatZinc operations to lib(ic), \nlib(ic_sets) and lib(ic_global), and is intended to be used in\nconjunction with lib(flatzinc).  It uses lib(propia) to implement\nvariants of the element constraint that are not supported by lib(ic).\nMoreover, lib(branch_and_bound) is used to provide optimization.\n</P><P>\nThis mapping supports bool, integer, float and set variables.\nIt does currently not support all constraints in reified form,\nin particular set constraints, according to the limitations of\nthe underlying solvers.\n</P><P>\nThe following extra annotations are supported by this mapping:\n<DL>\n<DT>annotation strategy(string:s)</DT>\n    <DD>the branch-and-bound strategy (default: \"continue\"). Valid names\n    are \"continue\", \"restart\", \"dichotomic\", See bb_min/3.</DD>\n<DT>annotation delta(float:f)</DT>\n    <DD>minimal absolute improvement for branch-and-bound steps (default 1.0).\n    See bb_min/3.</DD>\n<DT>annotation factor(float:f)</DT>\n    <DD>minimal improvement ratio (with respect to the lower cost bound)\n    for strategies 'continue' and 'restart' (default 1.0), or split factor\n    for strategy 'dichotomic' (default 0.5). See bb_min/3.</DD>\n<DT>annotation timeout(float:f)</DT>\n    <DD>timeout for branch-and-bound in seconds (default: unlimited).\n    See bb_min/3.</DD>\n</DL>\nYou must include \"eclipse.mzn\" in your MiniZinc model to use these\nannotations.\n<P>\n")).
