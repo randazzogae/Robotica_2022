@@ -1,0 +1,477 @@
+		//CELLE DSIR
+		/*private boolean cella1,cella2,cella3,cella4,cella5,cella6,cella7,cella8,cella9,cella10,cella11,cella12;
+		private boolean cella13,cella14,cella15,cella16,cella17,cella18,cella19,cella20,cella21,cella22,cella23;
+		private boolean cella24,cella25,cella26,cella27,cella28,cella29,cella30,cella31,cella32,cella33,cella34;
+		private boolean cella35,cella36,cella37,cella38,cella39,cella40,cella41,cella42,cella43,cella44,cella45;
+		private boolean cella46,cella47,cella48,cella49,cella50,cella51,cella52,cella53,cella54,cella55,cella56;
+		private boolean cella57,cella58,cella59,cella60,cella61,cella62,cella63,cella64,cella65,cella66,cella67;
+		private boolean cella68,cella69,cella70;*/
+
+	//private boolean corridoioA, corridoioB, corridoioC, corridoioD;
+
+
+
+//------------------INIZIO MODIFICHE DSIR-----------------------------------------
+	/*
+	public String testPositionDsir(double x_rob,double y_rob) //restituisce una stringa che indica in quale cella si trova il robot
+	{
+		cella1 = x_rob>=11 && x_rob<=13 && y_rob<28 && y_rob>=26;         //y=28 muro in alto
+
+        cella2 = x_rob>13 && x_rob<=16 && y_rob<28 && y_rob>=26;
+
+        cella3 = x_rob>16 && x_rob<=19 && y_rob<28 && y_rob>=26;
+
+        cella4 = x_rob>19 && x_rob<=22 && y_rob<28 && y_rob>=26;
+
+        cella5 = x_rob>22 && x_rob<=25 && y_rob<28 && y_rob>=26;
+
+        cella6 = x_rob>25 && x_rob<=28 && y_rob<28 && y_rob>=26;
+
+        cella7 = x_rob>28 && x_rob<=31 && y_rob<28 && y_rob>=26;
+
+        cella8 = x_rob>31 && x_rob<=33 && y_rob<28 && y_rob>=26;
+
+		corridoioA = x_rob>25 && x_rob<33 && y_rob<16 && y_rob>=12;
+
+        corridoioB = x_rob>11 && x_rob<=33 && y_rob<6 && y_rob>=4;
+
+        corridoioC = x_rob>11 && x_rob<19 && y_rob<16 && y_rob>=12;
+
+        corridoioD = x_rob>11 && x_rob<=33 && y_rob<24 && y_rob>=22;
+
+		//-----cella1 colonna
+        cella9 = x_rob>=11 && x_rob<=13 && y_rob<26 && y_rob>=24;
+
+        cella17 = x_rob>=11 && x_rob<=13 && y_rob<22 && y_rob>=20;
+
+        cella20 = x_rob>=11 && x_rob<=13 && y_rob<20 && y_rob>=18;
+
+        cella23 = x_rob>=11 && x_rob<=13 && y_rob<18 && y_rob>=16;
+
+        cella26 = x_rob>=11 && x_rob<=13 && y_rob<12 && y_rob>=10;
+
+        cella29 = x_rob>=11 && x_rob<=13 && y_rob<10 && y_rob>=8;
+
+        cella32 = x_rob>=11 && x_rob<=13 && y_rob<8 && y_rob>=6;
+
+        cella55 = x_rob>=11 && x_rob<=13 && y_rob<4 && y_rob>=2;
+
+        cella63 = x_rob>=11 && x_rob<=13 && y_rob<2 && y_rob>=0;
+		
+		//-----cella2 colonna
+        cella10 = x_rob>13 && x_rob<=16 && y_rob<26 && y_rob>=24;
+
+        cella18 = x_rob>13 && x_rob<=16 && y_rob<22 && y_rob>=20;
+
+        cella21 = x_rob>13 && x_rob<=16 && y_rob<20 && y_rob>=18;
+
+        cella24 = x_rob>13 && x_rob<=16 && y_rob<18 && y_rob>=16;
+
+        cella27 = x_rob>13 && x_rob<=16 && y_rob<12 && y_rob>=10;
+
+        cella30 = x_rob>13 && x_rob<=16 && y_rob<10 && y_rob>=8;
+
+        cella33 = x_rob>13 && x_rob<=16 && y_rob<8 && y_rob>=6;
+
+        cella56 = x_rob>13 && x_rob<=16 && y_rob<4 && y_rob>=2;
+
+        cella64 = x_rob>13 && x_rob<=16 && y_rob<2 && y_rob>=0;
+
+		//-----cella 3 colonna
+        cella11 = x_rob>16 && x_rob<=19 && y_rob<26 && y_rob>=24;
+
+        cella19 = x_rob>16 && x_rob<=19 && y_rob<22 && y_rob>=20;
+
+        cella22 = x_rob>16 && x_rob<=19 && y_rob<20 && y_rob>=18;
+
+        cella25 = x_rob>16 && x_rob<=19 && y_rob<18 && y_rob>=16;
+
+        cella28 = x_rob>16 && x_rob<=19 && y_rob<12 && y_rob>=10;
+
+        cella31 = x_rob>16 && x_rob<=19 && y_rob<10 && y_rob>=8;
+
+        cella34 = x_rob>16 && x_rob<=19 && y_rob<8 && y_rob>=6;
+
+        cella57 = x_rob>16 && x_rob<=19 && y_rob<4 && y_rob>=2;
+
+        cella65 = x_rob>16 && x_rob<=19 && y_rob<2 && y_rob>=0;
+
+		//-----cella 4 colonna
+
+        cella12 = x_rob>19 && x_rob<=22 && y_rob<26 && y_rob>=24;
+
+        cella35 = x_rob>19 && x_rob<=22 && y_rob<8 && y_rob>=6;
+
+        cella58 = x_rob>19 && x_rob<=22 && y_rob<4 && y_rob>=2;
+
+        cella66 = x_rob>19 && x_rob<=22 && y_rob<2 && y_rob>=0; 
+
+		//-----cella 5 colonna
+
+        cella13 = x_rob>22 && x_rob<=25 && y_rob<26 && y_rob>=24;
+
+        cella51 = x_rob>22 && x_rob<=25 && y_rob<8 && y_rob>=6;
+
+        cella59 = x_rob>22 && x_rob<=25 && y_rob<4 && y_rob>=2;
+
+        cella67 = x_rob>22 && x_rob<=25 && y_rob<2 && y_rob>=0;
+
+		//----cella 6 colonna
+        cella14 = x_rob>25 && x_rob<=28 && y_rob<26 && y_rob>=24;
+
+        cella36 = x_rob>25 && x_rob<=28 && y_rob<22 && y_rob>=20;
+
+        cella39 = x_rob>25 && x_rob<=28 && y_rob<20 && y_rob>=18;
+
+        cella42 = x_rob>25 && x_rob<=28 && y_rob<18 && y_rob>=16;
+
+        cella45 = x_rob>25 && x_rob<=28 && y_rob<12 && y_rob>=10;
+
+        cella48 = x_rob>25 && x_rob<=28 && y_rob<10 && y_rob>=8;
+
+        cella52 = x_rob>25 && x_rob<=28 && y_rob<8 && y_rob>=6;
+
+        cella60 = x_rob>25 && x_rob<=28 && y_rob<4 && y_rob>=2;
+
+        cella68 = x_rob>25 && x_rob<=28 && y_rob<2 && y_rob>=0;
+
+		//----cella 7 colonna
+        cella15 = x_rob>28 && x_rob<=31 && y_rob<26 && y_rob>=24;
+
+        cella37 = x_rob>28 && x_rob<=31 && y_rob<22 && y_rob>=20;
+
+        cella40 = x_rob>28 && x_rob<=31 && y_rob<20 && y_rob>=18;
+
+        cella43 = x_rob>28 && x_rob<=31 && y_rob<18 && y_rob>=16;
+
+        cella46 = x_rob>28 && x_rob<=31 && y_rob<12 && y_rob>=10;
+
+        cella49 = x_rob>28 && x_rob<=31 && y_rob<10 && y_rob>=8;
+
+        cella53 = x_rob>28 && x_rob<=31 && y_rob<8 && y_rob>=6;
+
+        cella61 = x_rob>28 && x_rob<=31 && y_rob<4 && y_rob>=2;
+
+        cella69 = x_rob>28 && x_rob<=31 && y_rob<2 && y_rob>=0;
+
+		//----cella 8 colonna
+        cella16 = x_rob>31 && x_rob<=33 && y_rob<26 && y_rob>=24;
+
+        cella38 = x_rob>31 && x_rob<=33 && y_rob<22 && y_rob>=20;
+
+        cella41 = x_rob>31 && x_rob<=33 && y_rob<20 && y_rob>=18;
+
+        cella44 = x_rob>31 && x_rob<=33 && y_rob<18 && y_rob>=16;
+
+        cella47 = x_rob>31 && x_rob<=33 && y_rob<12 && y_rob>=10;
+
+        cella50 = x_rob>31 && x_rob<=33 && y_rob<10 && y_rob>=8;
+
+        cella54 = x_rob>31 && x_rob<=33 && y_rob<8 && y_rob>=6;
+
+        cella62 = x_rob>31 && x_rob<=33 && y_rob<4 && y_rob>=2;
+
+        cella70 = x_rob>31 && x_rob<=33 && y_rob<2 && y_rob>=0;
+
+		if(cella1)
+		{
+
+			return "SONO NELLA CELLA 1";
+		}
+		else if(cella2)
+		{
+			return "SONO NELLA CELLA 2";
+		}
+		else if(cella3)
+		{
+			return "SONO NELLA CELLA 3";
+		}
+		else if(cella4)
+		{
+			return "SONO NELLA CELLA 4";
+		}
+		else if(cella5)
+		{
+			return "SONO NELLA CELLA 5";
+		}
+		else if(cella6)
+		{
+			return "SONO NELLA CELLA 6";
+		}
+		else if(cella7)
+		{
+			return "SONO NELLA CELLA 7";
+		}
+		else if(cella8)
+		{
+			return "SONO NELLA CELLA 8";
+		}
+		else if(cella9)
+		{
+			return "SONO NELLA CELLA 9";
+		}
+		else if(cella10)
+		{
+			return "SONO NELLA CELLA 10";
+		}
+		else if(cella11)
+		{
+			return "SONO NELLA CELLA 11";
+		}
+		else if(cella12)
+		{
+			return "SONO NELLA CELLA 12";
+		}
+		else if(cella13)
+		{
+			return "SONO NELLA CELLA 13";
+		}
+		else if(cella14)
+		{
+			return "SONO NELLA CELLA 14";
+		}
+		else if(cella15)
+		{
+			return "SONO NELLA CELLA 15";
+		}
+		else if(cella16)
+		{
+			return "SONO NELLA CELLA 16";
+		}
+		else if(cella17)
+		{
+			return "SONO NELLA CELLA 17";
+		}
+		else if(cella18)
+		{
+			return "SONO NELLA CELLA 18";
+		}
+		else if(cella19)
+		{
+			return "SONO NELLA CELLA 19";
+		}
+		else if(cella20)
+		{
+			return "SONO NELLA CELLA 20";
+		}
+		else if(cella21)
+		{
+			return "SONO NELLA CELLA 21";
+		}
+		else if(cella22)
+		{
+			return "SONO NELLA CELLA 22";
+		}
+		else if(cella23)
+		{
+			return "SONO NELLA CELLA 23";
+		}
+		else if(cella24)
+		{
+			return "SONO NELLA CELLA 24";
+		}
+		else if(cella25)
+		{
+			return "SONO NELLA CELLA 25";
+		}
+		else if(cella26)
+		{
+			return "SONO NELLA CELLA 26";
+		}
+		else if(cella27)
+		{
+			return "SONO NELLA CELLA 27";
+		}
+		else if(cella28)
+		{
+			return "SONO NELLA CELLA 28";
+		}
+		else if(cella29)
+		{
+			return "SONO NELLA CELLA 29";
+		}
+		else if(cella30)
+		{
+			return "SONO NELLA CELLA 30";
+		}
+		else if(cella31)
+		{
+			return "SONO NELLA CELLA 31";
+		}
+		else if(cella32)
+		{
+			return "SONO NELLA CELLA 32";
+		}
+		else if(cella33)
+		{
+			return "SONO NELLA CELLA 33";
+		}
+		else if(cella34)
+		{
+			return "SONO NELLA CELLA 34";
+		}
+		else if(cella35)
+		{
+			return "SONO NELLA CELLA 35";
+		}
+		else if(cella36)
+		{
+			return "SONO NELLA CELLA 36";
+		}
+		else if(cella37)
+		{
+			return "SONO NELLA CELLA 37";
+		}
+		else if(cella38)
+		{
+			return "SONO NELLA CELLA 38";
+		}
+		else if(cella39)
+		{
+			return "SONO NELLA CELLA 39";
+		}
+		else if(cella40)
+		{
+			return "SONO NELLA CELLA 40";
+		}
+		else if(cella41)
+		{
+			return "SONO NELLA CELLA 41";
+		}
+		else if(cella42)
+		{
+			return "SONO NELLA CELLA 42";
+		}
+		else if(cella43)
+		{
+			return "SONO NELLA CELLA 43";
+		}
+		else if(cella44)
+		{
+			return "SONO NELLA CELLA 44";
+		}
+		else if(cella45)
+		{
+			return "SONO NELLA CELLA 45";
+		}
+		else if(cella46)
+		{
+			return "SONO NELLA CELLA 46";
+		}
+		else if(cella47)
+		{
+			return "SONO NELLA CELLA 47";
+		}
+		else if(cella48)
+		{
+			return "SONO NELLA CELLA 48";
+		}
+		else if(cella49)
+		{
+			return "SONO NELLA CELLA 49";
+		}
+		else if(cella50)
+		{
+			return "SONO NELLA CELLA 50";
+		}
+		else if(cella51)
+		{
+			return "SONO NELLA CELLA 51";
+		}
+		else if(cella52)
+		{
+			return "SONO NELLA CELLA 52";
+		}
+		else if(cella53)
+		{
+			return "SONO NELLA CELLA 53";
+		}
+		else if(cella54)
+		{
+			return "SONO NELLA CELLA 54";
+		}
+		else if(cella55)
+		{
+			return "SONO NELLA CELLA 55";
+		}
+		else if(cella56)
+		{
+			return "SONO NELLA CELLA 56";
+		}
+		else if(cella57)
+		{
+			return "SONO NELLA CELLA 57";
+		}
+		else if(cella58)
+		{
+			return "SONO NELLA CELLA 58";
+		}
+		else if(cella59)
+		{
+			return "SONO NELLA CELLA 59";
+		}
+		else if(cella60)
+		{
+			return "SONO NELLA CELLA 60";
+		}
+		else if(cella61)
+		{
+			return "SONO NELLA CELLA 61";
+		}
+		else if(cella62)
+		{
+			return "SONO NELLA CELLA 62";
+		}
+		else if(cella63)
+		{
+			return "SONO NELLA CELLA 63";
+		}
+		else if(cella64)
+		{
+			return "SONO NELLA CELLA 64";
+		}
+		else if(cella65)
+		{
+			return "SONO NELLA CELLA 65";
+		}
+		else if(cella66)
+		{
+			return "SONO NELLA CELLA 66";
+		}
+		else if(cella67)
+		{
+			return "SONO NELLA CELLA 67";
+		}
+		else if(cella68)
+		{
+			return "SONO NELLA CELLA 68";
+		}
+		else if(cella69)
+		{
+			return "SONO NELLA CELLA 69";
+		}
+		else if(cella70)
+		{
+			return "SONO NELLA CELLA 70";
+		}
+		else if(corridoioA)
+		{
+			return "SONO NEL CORRIDOIO A";
+		}
+		else if(corridoioB)
+		{
+			return "SONO NEL CORRIDOIO B";
+		}
+		else if(corridoioC)
+		{
+			return "SONO NEL CORRIDOIO C";
+		}
+		else if(corridoioD)
+		{
+			return "SONO NEL CORRIDOIO D";
+		}
+		
+
+		return "ERROR: NON SONO IN NESSUNA DELLE 70 CELLE ATTUALMENTE DEFINITE";
+	}
+	*/

@@ -1,0 +1,1 @@
+versione con memoria condivisa(da eliminare la comunicazione), esplorazione anticamere e antistallo
