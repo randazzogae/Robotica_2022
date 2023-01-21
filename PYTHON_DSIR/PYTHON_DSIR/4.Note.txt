@@ -1,0 +1,1 @@
+Nella cartella pf_framework sono presenti i file python dell'esercitazione 4 (mappa_basata_su_landmark)
