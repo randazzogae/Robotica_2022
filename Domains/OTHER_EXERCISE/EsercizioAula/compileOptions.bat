@@ -1,0 +1,1 @@
+javac -cp C:\Teambots\src SchemaDemo.java

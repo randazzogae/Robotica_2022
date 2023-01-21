@@ -1,0 +1,181 @@
+/*
+ * MapCanvas.java
+ *
+ * Created on 6 dicembre 2002, 18.36
+ */
+
+package CSAI.unipa.graphics;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.*;
+import java.awt.geom.*;
+
+import EDU.gatech.cc.is.abstractrobot.SimpleInterface;
+
+import CSAI.unipa.util.mapAttributes;
+import CSAI.unipa.knowledgment.NodeGraphCell2;
+
+/**
+ *
+ * @author  Marco Di Stefano
+ */
+public class MapCanvas2 extends Canvas {
+    
+    private Graphics        g;
+    private JFrame          parent;
+    private int             canvasWidth;
+    private int             canvasHeight;
+    private int             column;
+    private int             row;
+    private double          cellDimension;
+    private NodeGraphCell2[][] map;
+    private int[]           robotPosition = new int[2];
+    private boolean         drawGrid = true;
+    private int             bounds;
+    
+    //////////////////////
+    private	BufferedImage buffImage;
+    private	Graphics2D bufferg;
+    private boolean drawRed = true, drawGreen = true, drawBlue = true;
+    
+    /** Creates a new instance of MapCanvas */
+    public MapCanvas2(JFrame p, int w, int h, int c, int r, double dim, int[] rob, NodeGraphCell2[][] m) {
+        parent = p;
+        canvasWidth = w;
+        canvasHeight = h;
+        this.setSize(canvasWidth, canvasHeight);
+        column = c;
+        row = r;
+        map = m;
+        cellDimension = dim;
+        robotPosition[0] = rob[0];
+        robotPosition[1] = rob[1];
+        this.setBackground(Color.white);    
+    }
+    
+    
+    public void resetGraphics() {
+        buffImage = new BufferedImage(canvasWidth,canvasHeight,BufferedImage.TYPE_INT_RGB);
+        bufferg = buffImage.createGraphics();
+        
+       // buffer = createImage(canvasWidth,canvasHeight);
+        //bufferg = buffer.getGraphics();
+        bufferg.setColor(Color.lightGray);
+        bufferg.fillRect(0,0,canvasWidth, canvasHeight);
+    }
+    
+    public void setSize(int w, int h){
+        canvasWidth = w;
+        canvasHeight = h;
+        super.setSize(w, h);
+    }
+    
+    public synchronized void update(Graphics g){
+        //Image buffer = createImage(canvasWidth,canvasHeight);
+        //bufferg = buffer.getGraphics();
+        
+        ////////
+         Graphics2D g2D = (Graphics2D)g;
+        
+        /*BufferedImage buffImage = new BufferedImage(canvasWidth,canvasHeight,BufferedImage.TYPE_INT_RGB);*/
+        /*Graphics2D bufferg = buffImage.createGraphics();*/
+        /////////
+        /*-- draw the grid --*/
+        bufferg.setColor(Color.lightGray);
+        bufferg.fillRect(0,0,canvasWidth,canvasHeight);
+            
+        if(drawGrid) {
+            bufferg.setColor(Color.gray);
+            for(int i=0; i<=column; i++){
+                bufferg.drawLine((int)(i*cellDimension*mapAttributes.CANVAS_DIMENSION), 0, (int)(i*cellDimension*mapAttributes.CANVAS_DIMENSION), (int)(row*cellDimension*mapAttributes.CANVAS_DIMENSION));
+            }
+        /*}
+        if(drawGrid)*/
+            for(int i=0; i<=row; i++){
+                bufferg.drawLine(0, (int)(i*cellDimension*mapAttributes.CANVAS_DIMENSION), (int)(column*cellDimension*mapAttributes.CANVAS_DIMENSION), (int)(i*cellDimension*mapAttributes.CANVAS_DIMENSION));
+            }
+        }
+        /*else {
+            bufferg.setColor(Color.lightGray);
+            bufferg.fillRect(0,0,canvasWidth,canvasHeight);
+        }*/
+        /*-- draw the visited or occupied cell --*/
+        for(int i=0; i<column; i++)
+            for(int j=0; j<row; j++){
+                        
+                if(map[i][j].getState()==mapAttributes.VISITED){
+                    
+                    /*bufferg.setColor(map[i][j].getColor());
+                    bufferg.setStroke(new BasicStroke());
+                    bufferg.drawLine((int)(i*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)((j*cellDimension+cellDimension/2)*mapAttributes.CANVAS_DIMENSION), 
+                               (int)((i+1)*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)((j*cellDimension+cellDimension/2)*mapAttributes.CANVAS_DIMENSION));
+                */}else
+                if(map[i][j].getOccupied()>0){
+                    float intensity = (float)(map[i][j].getOccupied());
+                    /*float red = map[i][j].getColor().getRed()/255f;
+                    float green = map[i][j].getColor().getGreen()/255f;
+                    float blue = map[i][j].getColor().getBlue()/255f;*/
+                  
+
+                    Color scale = /*new Color(intensity*red,intensity*green,intensity*blue)*/map[i][j].getColor();
+                    /*if((red==1.0))
+                        scale = new Color(red,intensity*green,intensity*blue);
+                    else
+                    if((green==1.0))
+                        scale = new Color(intensity*red,green,intensity*blue);
+                    else
+                    if((blue==1.0))
+                        scale = new Color(intensity*red,intensity*green,blue);*/
+                    bufferg.setColor(scale);
+                    
+                    bufferg.setStroke(new BasicStroke(2*intensity));
+                   
+                    bufferg.drawLine((int)(i*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)(j*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)((i+1)*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)((j+1)*cellDimension*mapAttributes.CANVAS_DIMENSION));
+                    bufferg.drawLine((int)((i+1)*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)(j*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)(i*cellDimension*mapAttributes.CANVAS_DIMENSION), 
+                               (int)((j+1)*cellDimension*mapAttributes.CANVAS_DIMENSION));
+                }
+                    //}
+            }
+        
+        /*-- draw the robot --*/
+        bufferg.setColor(Color.blue);
+        bufferg.drawOval((int)((robotPosition[0]*cellDimension+cellDimension/2)*mapAttributes.CANVAS_DIMENSION),
+                   (int)((robotPosition[1]*cellDimension+cellDimension/2)*mapAttributes.CANVAS_DIMENSION),
+                   (int)(cellDimension/2*mapAttributes.CANVAS_DIMENSION),
+                   (int)(cellDimension/2*mapAttributes.CANVAS_DIMENSION));
+        
+        //g.drawImage(buffer, 0, 0, this);
+        g2D.setPaint(new TexturePaint(buffImage, new Rectangle(canvasWidth,canvasHeight)));
+        //g2D.setColor(Color.yellow);
+        g2D.fill(new Rectangle2D.Double(0,0,canvasWidth,canvasHeight));
+       
+    }
+    
+    
+    public void setPosition(int[] pos){
+        robotPosition[0] = pos[0];
+        robotPosition[1] = pos[1];
+    }
+
+    public void setDrawGrid(boolean d) {
+        drawGrid = d;
+    }
+    
+    public void setDrawRed(boolean b) {
+        drawRed = b;
+    }
+    public void setDrawGreen(boolean b) {
+        drawGreen = b;
+    }
+    public void setDrawBlue(boolean b) {
+        drawBlue = b;
+    }
+}

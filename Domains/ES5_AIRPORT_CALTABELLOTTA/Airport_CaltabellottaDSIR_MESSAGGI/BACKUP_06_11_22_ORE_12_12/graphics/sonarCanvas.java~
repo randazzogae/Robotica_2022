@@ -1,0 +1,38 @@
+/*
+ * sonarCanvas.java
+ *
+ * Created on 11 dicembre 2002, 20.31
+ */
+
+package CSAI.unipa.graphics;
+
+import javax.swing.JFrame;
+import java.awt.*;
+
+import EDU.gatech.cc.is.abstractrobot.SimpleInterface;
+
+import CSAI.unipa.util.mapAttributes;
+import CSAI.unipa.knowledgment.NodeGraphCell;
+
+/**
+ *
+ * @author  Standard
+ */
+public class SonarCanvas extends Canvas {
+    private Graphics        g;
+    private JFrame          parent;
+    private int             canvasWidth;
+    private int             canvasHeight;
+
+    
+    /** Creates a new instance of sonarCanvas */
+    public SonarCanvas(JFrame p, int w, int h) {
+        parent = p;
+        canvasWidth = w;
+        canvasHeight = h;
+        this.setSize(canvasWidth, canvasHeight);
+    }
+    
+    public void paint(Graphics g){}
+    
+}

@@ -1,0 +1,1 @@
+Eventualmente confronta con versioni su teams

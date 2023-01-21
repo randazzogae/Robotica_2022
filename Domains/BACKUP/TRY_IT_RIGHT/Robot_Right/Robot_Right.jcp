@@ -1,0 +1,33 @@
+! ** JCreator Project File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.10"
+LABEL := "Robot_Right"
+JDKPROFILE := "j2sdk1.4.0"
+ACTIVE := "1"
+OUTPUTPATH := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT"
+COMPILER := "<Default>"
+
+! Start RunTime Configuration Structure
+#[BeginRunTime]LABEL := "<Default>" RUNAPPLIC := "" RUNAPPLET := "" PARAM := "" RUN := "" CHECK := "10" #[EndRunTime]
+! Start Required Libraries Structure
+#[BeginRLibrary]LABEL := "tb" #[EndRLibrary]
+
+! Start Project Folder Structure
+#[BeginFolder]
+LABEL := "Root"
+FILTER := ""
+
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\Robot_Right.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\v_LinearAttraction_v_Try_it.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\v_Closest_var_Try_it.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\v_ChooseZone_mv_Try_it.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\TRY_IT_2_RIGHT.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\TRY_IT_1_RIGHT.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\Stalling.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\RoomLocation.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\Res.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\NodeMemory_Try_it.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\Location.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\i_myscore_r.java" #[EndFile]
+#[EndFolder]

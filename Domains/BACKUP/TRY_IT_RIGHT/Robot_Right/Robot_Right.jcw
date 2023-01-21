@@ -1,0 +1,17 @@
+! ** JCreator Workspace File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.00"
+LABEL := "Robot_Right"
+
+! Start Project Structure
+#[BeginProject]SOURCE := "Robot_Right.jcp" #[EndProject]
+
+! Start Last Document Structure
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\TRY_IT_1_RIGHT.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\TRY_IT_2_RIGHT.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\i_myscore_r.java" #[EndFile]
+#[BeginFile]SOURCE := "C:\\Documents and Settings\\Antonio\\Desktop\\Last_version\\TRY_IT_RIGHT\\Robot_Right.java" #[EndFile]
+
+! Start Breakpoint Structure
+
