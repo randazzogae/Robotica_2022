@@ -1,1 +1,0 @@
-javac -cp C:\Teambots\src Gara.java
