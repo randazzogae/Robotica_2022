@@ -1,0 +1,20 @@
+
+Nella classe ReportCelle è stato aggiunto il seguente metodo per permettere il reset delle celle nel momento in cui viene effettuato il click 
+sul tasto reset del simulatore. 
+
+public void resetCelle() {
+			for(int i=0;i<70;i++)
+		{
+			bottoni[i].setBackground(Color.GREEN);
+		}
+		for(int i=0;i<6;i++)
+		{
+
+	
+			robot0[i].setBackground(Color.GREEN);
+			robot1[i].setBackground(Color.GREEN);
+		}
+			}
+
+
+Per implementarlo basta richiamarlo nel configure() della classe robotLeft.java
